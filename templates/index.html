@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is This a Dumpster Fire?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Is This a Dumpster Fire?</h1>
+        
+        <div class="dumpster-container">
+            <svg class="dumpster" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dumpster body -->
+                <rect x="30" y="80" width="140" height="80" rx="5" fill="#333" stroke="#111" stroke-width="2"/>
+                
+                <!-- Dumpster lid -->
+                <rect x="25" y="60" width="150" height="25" rx="5" fill="#444" stroke="#111" stroke-width="2"/>
+                
+                <!-- Dumpster handle -->
+                <rect x="85" y="50" width="30" height="15" rx="3" fill="#555" stroke="#111" stroke-width="2"/>
+                
+                <!-- Flames (hidden by default) -->
+                <g class="flames" id="flame1">
+                    <path d="M 50 75 Q 45 60 55 50 Q 60 65 50 75 Z" fill="#FF6B00" opacity="0.8"/>
+                </g>
+                <g class="flames" id="flame2">
+                    <path d="M 100 75 Q 95 55 110 45 Q 115 70 100 75 Z" fill="#FFD700" opacity="0.8"/>
+                </g>
+                <g class="flames" id="flame3">
+                    <path d="M 150 75 Q 145 60 160 50 Q 165 65 150 75 Z" fill="#FF6B00" opacity="0.8"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="result-display">
+            <p id="result-text">Ready to find out?</p>
+            <p id="state-text"></p>
+        </div>
+        
+        <button class="roll-button" onclick="rollDice()">🎲 Roll the Dice</button>
+        
+        <div class="last-roll">
+            <p id="last-number"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
